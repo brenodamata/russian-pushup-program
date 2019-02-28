@@ -1,5 +1,3 @@
-require 'pry'
-
 class Week
   WEEK_ONE = {
     D1: {percentage: 30, interval: 60},
@@ -49,14 +47,8 @@ class Week
       hsh[day.first] = total_pushups.to_i
     end
   end
+
+  def total_per_week
+    total_per_day.values.inject(:+)
+  end
 end
-
-w1 = Week.new(nil, 60)
-s = w1.schedule
-h = w1.total_per_day
-
-w2 = Week.new(:two, 60)
-s2 = w2.schedule
-h2 = w2.total_per_day
-
-pry
